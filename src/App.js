@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import Input from "./components/Input";
+import Expenses from "./components/Expenses";
+import { useSelector } from "react-redux";
 
 function App() {
+  const { totalBalance, totalExpenses, totalIncome } = useSelector(
+    (state) => state
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="container">
+      <section className="input_sec">
+        <Input />
+      </section>
+
+      <section className="output_sec">
+        <div className="calculations">
+          <div className="income figure">
+            <p>income</p>
+            <p>${totalIncome}</p>
+          </div>
+          <div className="expenses figure">
+            <p>expenses</p>
+            <p>${totalExpenses}</p>
+          </div>
+          <div className="balance figure">
+            <p>balance</p>
+            <p>${totalBalance}</p>
+          </div>
+        </div>
+        <Expenses />
+      </section>
+    </main>
   );
 }
 

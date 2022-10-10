@@ -1,13 +1,303 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Montserrat", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  background: rgb(255, 255, 255);
+  width: 95vw;
+  min-height: 350px;
+  height: auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  box-shadow: 0px 0px 5px 5px rgba(136, 135, 135, 0.326);
+}
+
+.input_sec {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 10px 10px;
+  background: black;
+}
+
+.input_sec h2 {
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  color: white;
+}
+
+.input_sec input {
+  height: 35px;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  padding: 5px;
+}
+
+input::placeholder {
+  text-transform: capitalize;
+  color: rgb(106, 104, 104);
+  font-size: 10px;
+}
+
+.input_sec select {
+  height: 35px;
+  margin-bottom: 15px;
+  padding: 5px;
+  font-size: 10px;
+}
+
+.save_btn {
+  width: 100px;
+  padding: 5px 15px;
+  text-transform: capitalize;
+  font-size: 10px;
+}
+
+.output_sec {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+}
+
+.calculations {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(230, 229, 229);
+}
+
+.figure {
+  flex: 1;
+
+  text-align: center;
+  text-transform: capitalize;
+
+  border-right: 2px solid rgb(211, 211, 211);
+  border-bottom: 2px solid rgb(211, 211, 211);
+
+  height: 50px;
+  padding: 10px 0;
+}
+
+.figure p {
+  color: rgb(0, 0, 0);
+  font-size: 10px;
+}
+
+.balance {
+  border: none;
+  border-bottom: 2px solid rgb(211, 211, 211);
+}
+
+.expenses_sec {
+  background: white;
+  height: auto;
+  padding: 10px 15px;
+
+  display: grid;
+  justify-content: center;
+}
+
+.expense_card {
+  width: 150px;
+  height: 120px;
+  padding: 5px 10px;
+  border: none;
+  box-shadow: 2px 2px 2px 2px rgba(128, 128, 128, 0.596);
+  margin-top: 10px;
+  color: black;
+}
+
+.expense_card p {
+  margin-bottom: 10px;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+.modal {
+  color: rgb(255, 9, 9);
+  font-size: 12px;
+  background: white;
+  text-align: center;
+  width: 150px;
+  padding: 5px;
+  margin-bottom: 25px;
+}
+
+.edit_modal {
+  width: 100%;
+  height: 140%;
+  background: rgba(0, 0, 0, 0.543);
+  padding: 4px 7px;
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  bottom: 10%;
+  left: 45%;
+}
+
+.edit_modal input {
+  margin-bottom: 3px;
+}
+
+.save_modal_btn {
+  margin-top: 5px;
+}
+
+@media screen and (min-width: 500px) {
+  .container {
+    width: 95vw;
+  }
+
+  .figure p {
+    color: rgb(0, 0, 0);
+  }
+  .expenses_sec {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .expense_card {
+    width: 150px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    width: 80vw;
+  }
+
+  .figure p {
+    color: rgb(0, 0, 0);
+  }
+  .expenses_sec {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .expense_card {
+    width: 180px;
+  }
+
+  .input_sec h2 {
+    font-size: 13px;
+  }
+
+  .input_sec input {
+    height: 35px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    padding: 10px;
+  }
+
+  input::placeholder {
+    text-transform: capitalize;
+    color: rgb(106, 104, 104);
+  }
+
+  .input_sec select {
+    height: 35px;
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+
+  .save_btn {
+    width: 100px;
+    padding: 10px 25px;
+    text-transform: capitalize;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    width: 80vw;
+  }
+
+  .figure p {
+    color: rgb(0, 0, 0);
+  }
+  .expenses_sec {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .expense_card {
+    width: 170px;
+  }
+
+  .input_sec h2 {
+    font-size: 14px;
+  }
+
+  .input_sec input {
+    font-size: 13.5px;
+    padding: 10px;
+  }
+
+  input::placeholder {
+    font-size: 13.5px;
+  }
+
+  .input_sec select {
+    padding: 10px;
+    font-size: 13.5px;
+  }
+
+  .save_btn {
+    width: 100px;
+    padding: 10px 25px;
+    font-size: 13.5px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 80vw;
+  }
+
+  .figure p {
+    font-size: 13.5px;
+  }
+  .expenses_sec {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .expense_card {
+    width: 200px;
+  }
+
+  .input_sec h2 {
+    font-size: 17px;
+  }
+
+  .input_sec input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  input::placeholder {
+    text-transform: capitalize;
+    color: rgb(106, 104, 104);
+    font-size: 14px;
+  }
+
+  .input_sec select {
+    height: 35px;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .save_btn {
+    width: 100px;
+    padding: 10px 25px;
+    font-size: 14px;
+  }
 }
